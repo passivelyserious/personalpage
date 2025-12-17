@@ -26,11 +26,72 @@
             margin-right: 20px;
         }
         header, footer {
-            text-align: center;
-            margin-top: 20px;
+        text-align: center;
+        margin-top: 20px;
+        }
+
+        /* (PART A) SHOW SELECTED SLIDE ONLY */
+        .slides input[type="radio"] { display: none; }
+        
+        .slides figure {
+        visibility: hidden; opacity: 0;
+        transition: all 0.5s;
+        }
+
+        .slides input[type="radio"]:checked + figure {
+        visibility: visible; opacity: 1;
+        }
+
+/* (PART B) SLIDES WRAPPER & SHARED*/
+        .slides {
+        position: relative;
+        max-width: 600px; height: 400px;
+        align-items: center;
+        margin: auto;
+        }
+        
+        .slides img, .slides figcaption, .slides label {
+        position: absolute;
+        }
+        
+        .slides label, .slides figcaption {
+        color: #fff; background: rgba(0, 0, 0, 0.7);
+        }
+
+/* (PART C) SLIDE IMAGES */
+        .slides img {
+        top: 0; left: 0;
+        width: 100%; height: 100%; object-fit: cover;
+        }
+
+/* (PART D) SLIDE CAPTION */
+        .slides figcaption {
+        bottom: 0; left: 0;
+        width: 100%; padding: 10px; text-align: center;
+        }
+
+/* (PART E) LAST & NEXT BUTTONS */
+        .slides label {
+        top: 50%; transform: translateY(-50%); 
+        display: flex; align-items: center; justify-content: center;
+        width: 50px; height: 50px; border-radius: 50%;
+        font-size: 1.5em; cursor: pointer;
         }
        
+        .slides label.last { left: 10px; }
+        
+        .slides label.next { right: 10px; }
+
+/* (PART X) ENTIRE PAGE */
+*       {
+        font-family: Arial, Helvetica, sans-serif;
+        box-sizing: border-box;
+        }
+/* CODE LIFTED FROM https://devncoffee.com/responsive-image-slider-in-html-css/, man what a headache
+Had to add margin: auto to center the slides to page */
+       
     </style>
+
 </head>
 <body>
     
@@ -48,7 +109,38 @@
         <img src="HeadshotCircle.png" alt="Headshot" style="display: block; margin: 0 auto; width: 100px; height: 120px;">
         <h1>Welcome to my personal webpage!</h1>
         <p1>εἰς τί ἐδίστασας</p1>
-        
+
+
+    <!-- (PART A) SLIDES -->
+        <div class="slides">
+      <!-- (A1) SLIDE 1 -->
+        <input type="radio" name="slides" id="slide1" checked="">
+        <figure>
+         <img src="CvilleLibChessEmpty.jpg">
+            <figcaption>My Weekly Volunteer Chess Meetup</figcaption>
+            <label for="slide2" class="next">▶</label>
+        </figure>
+
+      <!-- (A2) SLIDE 2 -->
+        <input type="radio" name="slides" id="slide2">
+        <figure>
+            <img src="HomelabV1.jpeg">
+            <figcaption>The messy state of my homelab</figcaption>
+            <label for="slide1" class="last">◀</label>
+            <label for="slide3" class="next">▶</label>
+        </figure>
+
+      <!-- (A3) SLIDE 3 -->
+        <input type="radio" name="slides" id="slide3">
+        <figure>
+            <img src="LinuxCat.jpg">
+            <figcaption>My cat helping me with a Linux install</figcaption>
+            <label for="slide2" class="last">◀</label>
+        </figure>
+        </div>
+  
+
+
     </section>
 
 </body>
