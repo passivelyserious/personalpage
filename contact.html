@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
     <style>
         body {
             background-color: Grey;
@@ -46,9 +48,29 @@
     </header>
 
     <section id="Contact">
-        <p>Email: <a href="mailto:business@danielmshimk.us">business@danielmshimk.us</a></p>
-        <p>View my Professional Career: <a href="https://www.linkedin.com/in/daniel-shimkus/">LinkedIn</a></p>
-        <p>Challenge me on Chess.com: <a href="https://www.chess.com/member/i-am-steely-dan">I-am-Steely-Dan</a></p>
+
+      <form action="https://formsubmit.co/business@danielmshimk.us" method="post">
+
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" required>
+        
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" required>
+        
+        <label for="subject">Subject</label>
+        <input type="text" name="subject" id="subject" required>
+        
+        <label for="message">Message</label>
+        <textarea name="message" id="message" required></textarea>
+        
+        <br>
+        
+        <button>Send</button>
+
+        <!-- https://gist.github.com/daveh/1164348fe21a6e7363d28c7b94c9eb3f amazing design and reference point for contact form -->
+        <!-- formsubmit.co for php contact form workaround; will want to play around with php later down the road -->
+        
+    </form>
     </section>
 
 </body>
